@@ -1,0 +1,82 @@
+<html>
+<head>
+<title>HexMap</title>
+<script type="text/javascript" src="js/jquery-1.7.1.js"></script>
+<script type="text/javascript" src="js/hexmap.js"></script>
+<link rel="stylesheet" type="text/css" href="css/hexmap.css" />
+</head>
+<body>
+<div id="container">
+	<div id="header">
+		<h1>Hex map test</h1>
+
+<script>
+    $(function() {
+	  var worldmap = generateRandomHexMap(8, 6);
+      populate(worldmap);
+    });
+    $(function() {
+      $("#serverRandomMap").click(getNewRandomServerMap);
+      $("#randomPath").click(getServerRandomPath);
+      $("#highlight").click(function(event) {
+        //$("[data-column=3]", "#hexmap").highlightHex("red");
+        selectPath([[1,1], [1,2], [2,1], [2,2]]).highlightHex("red");
+      });
+      $("#jsRandomMap").click(function(event) {
+	    var worldmap = generateRandomHexMap(8, 6);
+        populate(worldmap);
+      });
+      $("#deHighlight").click(function(event) {
+        $(".highlight", "#hexmap").remove();
+      });
+    });
+</script>  
+</div>
+<div id="controls">
+  <button type="button" id="jsRandomMap">JS Random Map</button>
+  <button type="button" id="serverRandomMap">Server Random Map</button>
+  <button type="button" id="randomPath">Random Path</button>
+  <button type="button" id="highlight">Highlight Test</button>
+  <button type="button" id="deHighlight">Remove Highlights</button>
+</div>
+
+<div id="hexmap"></div>
+<div id="tooltip"></div>
+
+<div id="templates" class="hidden">
+  <div class="tile blue">
+    <img src="images/tiles/hex-blue.png" width="92" height="80" class="base" />
+  </div>
+  <div class="tile brown">
+    <img src="images/tiles/hex-brown.png" width="92" height="80" class="base" />
+  </div>
+  <div class="tile darkgreen">
+    <img src="images/tiles/hex-darkgreen.png" width="92" height="80" class="base" />
+  </div>
+  <div class="tile grey">
+    <img src="images/tiles/hex-grey.png" width="92" height="80" class="base" />
+  </div>
+  <div class="tile lightgreen">
+    <img src="images/tiles/hex-lightgreen.png" width="92" height="80" class="base" />
+  </div>
+  <div class="tile yellow">
+    <img src="images/tiles/hex-yellow.png" width="92" height="80" class="base" />
+  </div>
+  <div class="tile white">
+    <img src="images/tiles/hex-white.png" width="92" height="80" class="base" />
+  </div>
+  <div class="tile transparent">
+    <img src="images/tiles/hex-transparent.png" width="92" height="80" />
+  </div>
+  <div class="tile highlight-green">
+    <img src="images/tiles/highlight-green.png" width="92" height="80" class="highlight" />
+  </div>
+  <div class="tile highlight-yellow">
+    <img src="images/tiles/highlight-yellow.png" width="92" height="80" class="highlight" />
+  </div>
+  <div class="tile highlight-red">
+    <img src="images/tiles/highlight-red.png" width="92" height="80" class="highlight" />
+  </div>
+</div>
+</body>
+</html>
