@@ -120,7 +120,7 @@ Le principe est le miême que pour les zone nord et sud.
 Exploitation
 ------------
 
-Pour exploiter ce tableau, nous pouvons envisager une représentation différent :
+Pour exploiter ce tableau, nous pouvons envisager une représentation différente :
 
 ```json
 [
@@ -136,6 +136,6 @@ Pour exploiter ce tableau, nous pouvons envisager une représentation différent
 …
 {"tile_id":492,"row":22,"lat":-90,"lon":0,"type_id":1}
 ],
-"hex_eaquateur":35}
+"hex_equateur":35}
 ]
 ```

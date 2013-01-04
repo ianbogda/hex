@@ -134,7 +134,7 @@ $(function() {
   TODO should probably revisit this API
 */
 (function($) {
-  $.fn.hexMapPosition = function(row, column, additionalStyle) {
+  $.fn.hexMapPosition = function(row, column) {
 
     // We store the row and column in the tile for 
     // use in the tooltip stuff
@@ -148,21 +148,17 @@ $(function() {
     var tile_width  = this.attr("width");
     var tile_height = this.attr("height");
 
-    // Haven't done the math to check these but they work
     var y_offset = tile_height / 4;
     var x_offset = tile_width  / 2;
 
     var xpos = 0 + column * tile_width;
     var ypos = 0 + row * (tile_height-y_offset);
 
-    // Am I really the only developer on earth who
-    // hates CSS positioning?
+    // CSS positioning
 	xpos += (row % 2 != 0 ) ? x_offset : 0;
-    //console.debug("Placing hex(r " + row + ", c" + column + ") at (" + xpos + ","  + ypos + ")");
   
     var style = {"position": "absolute", 
                  "top": ypos, "left": xpos};
-    $.extend(style, additionalStyle);   // nb, not sure this is really needed vs css classes
     
     return this.css(style);
   }
