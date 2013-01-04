@@ -33,19 +33,19 @@ Le calcul de la distance entre 2 cases adjacantes dépend de des coordonnées de
 Les coûts sont différents selon si l'abscisse est paire ou impaire.
 
 ```
-       \___/          |         \___/         |         \___/         |         \___/
-       /   \          |         /   \         |         /   \         |         /   \
-  \___/ 0,- \___/     |    \___/ 0,- \___/    |    \___/ 0,- \___/    |    \___/ 0,- \___/
-  /   \     /   \     |    /   \     /   \    |    /   \     /   \    |    /   \     /   \
-_/ -,0 \___/ +,0 \_   |  _/ -,- \___/ +,- \_  |  _/ -,- \___/ +,- \_  |  _/ -,0 \___/ +,0 \_
- \     /   \     /    |   \     /   \     /   |   \     /   \     /   |   \     /   \     /
-  \___/ 1,1 \___/     |    \___/ 2,2 \___/    |    \___/ 2,1 \___/    |    \___/ 1,2 \___/
-  /   \     /   \     |    /   \     /   \    |    /   \     /   \    |    /   \     /   \
-_/ -,+ \___/ +,+ \_   |  _/ -,0 \___/ +,0 \_  |  _/ -,0 \___/ +,0 \_  |  _/ -,+ \___/ +,+ \_
- \     /   \     /    |   \     /   \     /   |   \     /   \     /   |   \     /   \     /
-  \___/ 0,+ \___/     |    \___/ 0,+ \___/    |    \___/ 0,+ \___/    |    \___/ 0,+ \___/
-  /   \     /   \     |    /   \     /   \    |    /   \     /   \    |    /   \     /   \
-       \___/          |         \___/         |         \___/         |         \___/
+       \___/          |         \___/
+       /   \          |         /   \
+  \___/ 0,- \___/     |    \___/ 0,- \___/
+  /   \     /   \     |    /   \     /   \
+_/ -,0 \___/ +,0 \_   |  _/ -,- \___/ +,- \_
+ \     /   \     /    |   \     /   \     /
+  \___/ 1,1 \___/     |    \___/ 2,2 \___/
+  /   \     /   \     |    /   \     /   \
+_/ -,+ \___/ +,+ \_   |  _/ -,0 \___/ +,0 \_
+ \     /   \     /    |   \     /   \     /
+  \___/ 0,+ \___/     |    \___/ 0,+ \___/
+  /   \     /   \     |    /   \     /   \
+       \___/          |         \___/
 ```
 
 La gestion de formule pour calculer le coût de déplacement dépend de l'abscisse. tentons de simplifier le système.
@@ -73,19 +73,19 @@ La gestion de formule pour calculer le coût de déplacement dépend de l'abscis
 
 Cela permet en plus de se retrouver pour chaque case avec la configuration suivante :
 ```
-       \___/          |         \___/         |         \___/         |         \___/
-       /   \          |         /   \         |         /   \         |         /   \
-  \___/ 0,- \___/     |    \___/ 0,- \___/    |    \___/ 0,- \___/    |    \___/ 0,- \___/
-  /   \     /   \     |    /   \     /   \    |    /   \     /   \    |    /   \     /   \
-_/ -,0 \___/ +,- \_   |  _/ -,0 \___/ +,- \_  |  _/ -,0 \___/ +,- \_  |  _/ -,0 \___/ +,- \_
- \     /   \     /    |   \     /   \     /   |   \     /   \     /   |   \     /   \     /
-  \___/ 1,1 \___/     |    \___/ 2,2 \___/    |    \___/ 2,1 \___/    |    \___/ 1,2 \___/
-  /   \     /   \     |    /   \     /   \    |    /   \     /   \    |    /   \     /   \
-_/ -,+ \___/ +,0 \_   |  _/ -,+ \___/ +,0 \_  |  _/ -,+ \___/ +,0 \_  |  _/ -,+ \___/ +,0 \_
- \     /   \     /    |   \     /   \     /   |   \     /   \     /   |   \     /   \     /
-  \___/ 0,+ \___/     |    \___/ 0,+ \___/    |    \___/ 0,+ \___/    |    \___/ 0,+ \___/
-  /   \     /   \     |    /   \     /   \    |    /   \     /   \    |    /   \     /   \
-       \___/          |         \___/         |         \___/         |         \___/
+       \___/          |         \___/
+       /   \          |         /   \
+  \___/ 0,- \___/     |    \___/ 0,- \___/
+  /   \     /   \     |    /   \     /   \
+_/ -,0 \___/ +,- \_   |  _/ -,0 \___/ +,- \_
+ \     /   \     /    |   \     /   \     /
+  \___/ 1,1 \___/     |    \___/ 2,2 \___/
+  /   \     /   \     |    /   \     /   \
+_/ -,+ \___/ +,0 \_   |  _/ -,+ \___/ +,0 \_
+ \     /   \     /    |   \     /   \     /
+  \___/ 0,+ \___/     |    \___/ 0,+ \___/
+  /   \     /   \     |    /   \     /   \
+       \___/          |         \___/
 ```
 Même rège de déplacement pour chaque case. Ce qui est beaucoup plus simple à gérer.
 
@@ -241,8 +241,13 @@ Tant que (nous n'avons pas atteint notre objectif) {
 }
 ```
 
-Une planete ou un disquemonde ?
--------------------------------
+Qeul monde doit-on généré ?
+---------------------------
+
+Nous avons trois possibilités : 
+  + un disquemonde
+  + un cylindre
+  + Une planete
 
 ### Le disquemonde
 
@@ -250,9 +255,15 @@ Le disquemonde est plus simple à gérer, sa modélisation correspondt très fac
 
 Un simple systeme (x,y) suffit.
 
+### Le cylindre
+
+Le cylindre est presque aussi simple à gérer que le disque monde, il faut préter attention à la couture.
+
 ### Une planète
 
-Pour ce faire, il faut envisager la modélisation différemment. Nous nous appuyrons sur le d20 (20 trianlge équilatéraux).
+#### Modélisation selon un d20
+
+Envisageons la modélisation différemment. Nous nous appuyerons sur le d20 (20 triangles équilatéraux).
 ```
      ___________ +90
     /\
@@ -268,15 +279,15 @@ Pour ce faire, il faut envisager la modélisation différemment. Nous nous appuy
 	  \/           36 \__/  -36
 	  0
 ```
-
 Découpons chaque triangle en 20 hexagones de coté.
 
 Cela nous fait : 60/20 = 3
 Chaque hexagone est à 3° de son voisin d'est et d'ouest.
 
-A l'équateur, nous avons une ligne de 110 hexagones.
-La terre fait 360° de à l'équateur. Sur la base de 110 hexagones à l'équateur, cela fait 360/110=3,272727273
-chaque hexagone est à 3,272727273° de son voisin d'est et d'ouest.
+A l'équateur, nous avons une ligne de 5*20=100 hexagones.
+
+La terre fait 360° de à l'équateur. Sur la base de 100 hexagones à l'équateur, cela fait 360/100=3,6
+chaque hexagone est à 3,6° de son voisin d'est et d'ouest.
 
 On perd un hexagone par ligne entre chaque triangle (puisqu'il y en a 5, nous perdons 5 hexagones par lignes).
 
@@ -290,29 +301,32 @@ Donc pour la partie Nord nous avons
 85
 80
 …
+20
 15
 10
 5
 ```
-pour chaque hemisphere hors tropiques
+soit 105 + (95+5) + (90+10) + … + (55+45) + 50 = 1055.
 
+Pour chaque hemisphere hors tropiques, nous avons 20 hexa de haut et 100 hexa de circonférnece soit 20*100 = 2000 hexagones
 
+Notre planete de compose d'un total de 1055 + 2000 = 3055 hexagones
 
+#### Continuons la simplification
+
+Il faut bien choisir l'orientation des hexagones. En effet, les hexagones peuvent être aligner selon 2 axes : 
+  + horizontal
+  + vertical
+
+Nous choisirons un alignement horizontal afin de simplifier la modélisation : chaque ligne ou longitude est composée d'hexagones.
 ```
-Latitude Longitude
- 90	        0
- 30         0
- 30        72
- 30       144
- 30       -72
- 30      -144
--30        36
--30       108
--30       -36
--30      -108
--30       180
--90         0
-```
+ -- Horizontal --->         |  Vertical
+ / \ / \ / \ / \ / \        |  __    __
+|   |   |   |   |   |       | /  \__/  \__/
+ \ / \ / \ / \ / \ /        | \__/  \__/  \
+  |   |   |   |   |         | /  \__/  \__/
+ / \ / \ / \ / \ / \        | \__/  \__/  \
+ ```
 
 ```
 sources : 
