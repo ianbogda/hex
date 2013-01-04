@@ -50,3 +50,44 @@ L'hexagone suivant est -180° + (360°/20)  = -162°
 
 Chaque ligne se poursuit ensuite d'alternance entre sa première tuile décélée ou non par rapport à -180°.
 
+Exploitation
+------------
+
+Est-ce que les coordonnés cubiques sont applicables sur le thor dans le système décrit ci-avant ?
+
+### Cas particulier de la couture
+
+La distance entre 2 cases est :
+  d = max ( |x1-x2| , |y1-y2| , |z1-z2| )
+
+```
+              .             .
+            /   \         /   \
+          /       \     /       \
+      \ /           \ /           \ 
+       |             |             |
+       |   7.5,-166  |   7.5,162   |
+       |             |             |
+      / \           / \           / \
+    /     \       /     \       /     \
+  /         \   /         \   /         \
+|             |             |             |
+|   0,-162    |    0,180    |     0,162   |
+|             |             |             |
+  \         /   \         /   \          /
+    \     /       \     /       \      /
+      \ /           \ /           \  /
+       |             |             |
+       |  -7.5,-166  |  -7.5,162   |
+       |             |             |
+        \           / \           /
+          \       /     \       /
+            \ . /         \ . /
+
+```
+donc pour se rendre de (0,180) à (-7.5,162) il faut :
+
+
+donc pour se rendre de (0,-180) à (0,-162) il faut :
+
+
