@@ -68,7 +68,7 @@ function populate(hexmap) {
       //$(this).highlightHex();
       var row = $(this).data("row");
       var column = $(this).data("column");
-      $.tooltip("Hex position (" + row + ", " + column + ", " + -(row+column) + ")");
+      $.tooltip("Hex position (row : " + row + ", column : " + column + ", z : " + -(row+column) + ")");
     });/*.mouseenter(function(){
 		$(this).highlightHex('green');
 	}).mouseout(function() {
@@ -145,20 +145,19 @@ $(function() {
       this.attr("data-row", row).attr("data-column", column);
     }
     
-    var tile_width = this.attr("width");
+    var tile_width  = this.attr("width");
     var tile_height = this.attr("height");
 
     // Haven't done the math to check these but they work
-    var y_offset = tile_height / 2;
-    var x_offset = tile_width / 4;
+    var y_offset = tile_height / 4;
+    var x_offset = tile_width  / 2;
 
-    var xpos = 0 + (row * (tile_width - x_offset));
-    var ypos = 0 + (column * tile_height);
+    var xpos = 0 + column * tile_width;
+    var ypos = 0 + row * (tile_height-y_offset);
 
     // Am I really the only developer on earth who
     // hates CSS positioning?
-    ypos += 40 + row * y_offset; 
-
+	xpos += (row % 2 != 0 ) ? x_offset : 0;
     //console.debug("Placing hex(r " + row + ", c" + column + ") at (" + xpos + ","  + ypos + ")");
   
     var style = {"position": "absolute", 

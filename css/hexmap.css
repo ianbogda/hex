@@ -34,7 +34,9 @@ div#footer {
 }
 
 div#hexmap {
-  position: relative;
+  position: absolute;
+  left: 200px;
+  top: 100px;
 }
 div.hidden {
   display: none;
