@@ -139,41 +139,41 @@ Biomes
 	<th colspan="6">Zone d'humidité</th>
 </tr>
 <tr>
-	<th width="15%">6<br>(humide)</th>
-	<th width="15%">5</th>
-	<th width="15%">4</th>
-	<th width="15%">3</th>
-	<th width="15%">2</th>
-	<th width="15%">1<br>(aride)</th>
+	<th>6<br>(humide)</th>
+	<th>5</th>
+	<th>4</th>
+	<th>3</th>
+	<th>2</th>
+	<th>1<br>(aride)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 	<th>4<br>(élevé)</th>
-	<td style="background:#f8f8f8" colspan="3"><code>NEIGE</code></td>
-	<td style="background:#ddddbb"><code>TUNDRA</code></td>
-	<td style="background:#bbbbbb"><code>NU</code></td>
-	<td style="background:#999999"><code>ROUSSI</code></td>
+	<td colspan="3">NEIGE</td>
+	<td>TUNDRA</td>
+	<td>NU</td>
+	<td>ROUSSI</td>
 </tr>
 <tr>
 	<th>3</th>
-	<td style="background:#ccd4bb" colspan="2"><code>TAÏGA</code></td>
-	<td style="background:#c4ccbb" colspan="2"><code>ARBUSTIVES</code></td>
-	<td style="background:#e4e8ca" colspan="2"><code>DÉSERT TEMPÉRÉ</code></td>
+	<td colspan="2">TAÏGA</td>
+	<td colspan="2">ARBUSTIVES</td>
+	<td colspan="2">DÉSERT TEMPÉRÉ</td>
 </tr>
 <tr>
 	<th>2</th>
-	<td style="background:#a4c4a8"><code>FORÊT TEMPERÉE HUMIDE</code></td>
-	<td style="background:#b4c9a9" colspan="2"><code>FORÊT TROPICALE A FEUILLES CADUQUES</code></td>
-	<td style="background:#c4d4aa" colspan="2"><code>PRAIRIE</code></td>
-	<td style="background:#e4e8ca"><code>DÉSERT TEMPERÉ</code></td>
+	<td>FORÊT TEMPERÉE HUMIDE</td>
+	<td colspan="2">FORÊT TROPICALE A FEUILLES CADUQUES</td>
+	<td colspan="2">PRAIRIE</td>
+	<td>DÉSERT TEMPERÉ</td>
 </tr>
 <tr>
 	<th>1<br>(bas)</th>
-	<td style="background:#9cbba9" colspan="2"><code>FORÊT TROPICALE HUMIDE</code></td>
-	<td style="background:#a9cca4" colspan="2"><code>FORÊT TROPICALE SAISONIÈRE</code></td>
-	<td style="background:#c4d4aa"><code>PRAIRIE</code></td>
-	<td style="background:#e9ddc7"><code>D"SERT SUBTROPICAL</code></td>
+	<td colspan="2">FORÊT TROPICALE HUMIDE</td>
+	<td colspan="2">FORÊT TROPICALE SAISONIÈRE</td>
+	<td>PRAIRIE</td>
+	<td>DÉSERT SUBTROPICAL</td>
 </tr>
 </tbody>
 </table>
@@ -326,9 +326,7 @@ Nous choisirons un alignement horizontal afin de simplifier la modélisation : c
  \ / \ / \ / \ / \ /        | \__/  \__/  \
   |   |   |   |   |         | /  \__/  \__/
  / \ / \ / \ / \ / \        | \__/  \__/  \
- ```
-
 ```
 sources : 
- * http://oldguygaming.com/calculating-the-hex-positions 
- * http://oldguygaming.com/exporting-my-ft3-world-back-to-cc3
+* [Calculer les positions des hexagones](http://oldguygaming.com/calculating-the-hex-positions)
+* [Modélisation d'une sphère en hexagones](http://oldguygaming.com/exporting-my-ft3-world-back-to-cc3)
