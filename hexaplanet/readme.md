@@ -120,6 +120,13 @@ Le principe est le miême que pour les zone nord et sud.
 Exploitation
 ------------
 
+La distance entre 2 cases est :
+  d = max ( |x1-x2| , |y1-y2| , |z1-z2| ) où z = -x -y
+  d = max ( |x1-x2| , |y1-y2| , |x2-x1 - y2+y1| )
+La terre est sphérique donc il faut modifier la formule
+  d = max ( t mod ( |x1-x2|) , T mod ( |y1-y2| ) , |t mod (x2+x1) - T mod (y2+y1)| )   où T est le nombre de tuiles en latitude et t le nombre de tuile en longitude.
+
+
 Pour exploiter ce tableau, nous pouvons envisager une représentation différente :
 
 ```json
