@@ -1,48 +1,57 @@
 Calcul des coordonnées des tuiles hexagonales
 =============================================
 
-La planète est un cylindre
---------------------------
+La planète est un tore
+----------------------
 
-### Mise à plat du cylindre
+### Mise à plat du tore
 
-C'est une carte normale hormis une couture en +/-180° de longitude.
+Visuellement, le tore ressemble à un beignet.
+Prendre un rectangle, identifier les deux bords pour former un cylindre, puis identifier les deux extrémités du cylindre, pour former le tore.
+(x² + y² + z² + R² - r²)² = 4R²(x² + y²)²
+
+### Coordonnées du tore
+x = cos ( s ) ( R+ r.cos ( t ))
+y = sin ( s ) ( R+ r.cos ( t ))
+z = r.sin ( t )
+Avec 2 constantes : 
+* R le rayon majeur
+* r le rayon mineur
+avec s,t appartiennent à [0,2pi).
+
+### coordonées cartésiennes du tore
+
+(R - sqrt(x² + y²))² + z² = r²
+ou
+R² - 2.R.sqrt(x² + y²) + x² + y² + z² -r² = 0
+soit
 
 ### Nombre de tuiles
 
 chaque ligne de la carte possède le même nombre de tuile.
 
-Prenons :
-* 20 hexagones par ligne
-* 24 lignes, donc 480 hexagones
+Pour simplifier, nous prendrons:
+* 36 hexagones par ligne
+* 36 lignes, donc 952 hexagones
 
 Coordonnées
 -----------
 
 ### Latitude
 
-Il y a 22 rangées de cases.
-
-Ayant choisit d'avoir des hexagones alignés horizontalement, toutes les cases de chaque rangée sont à la même latitude.
-
-La première rangée est en +90°, la dernière en -90°
-
-Le décalage de latitude d'une rangée vers la suivante est 180°/24 = 7.5°
-
-Donc la deuxième rangée est en 90° - (180°/24) = 82.5°.
-
+les "pôles" seront disposés en +/-18 et 0.
 
 ### Longitude
 
-Le calcul des longitudes est légèrement plus complexe.
+de -18 à +18.
+* La carte s'étend de -180° Ouest à +180° Est.
 
 Nous connaissons le nombre de tuiles de chaque rangée.
 
 En divisant 360° par le nombre d'hexagones de la ligne nous connaissons le nombre de degrés entre les hexagones de cette rangée.
 Ensuite, nous avons besoin de connaître la position du premier hexagone de chaque rangée.
-* La carte s'étend de -180° Ouest à +180° Est.
 
-A partir de la 1ère rangée, l'hexagone le plus à gauche est contre le bord gauche de la carte (la marque -180°). Par conséquent, le centre de cet hexagone est -180° + (360°/20)/2 = -171°.
+A partir de la 1ère rangée, l'hexagone le plus à gauche est contre le bord gauche de la carte (la marque -180°). Par conséquent, le centre de cet hexagone est -180° + (360°/36)/2 = -175°.
 Le deuxième hexagone de la rangée à son centre en -171° + (360°/20) = -153°.
 
 La deuxième rangée commence de sur la moitié de l'hexagone, donc sa longitude est -180°.
@@ -52,8 +61,6 @@ Chaque ligne se poursuit ensuite d'alternance entre sa première tuile décélé
 
 Exploitation
 ------------
-
-Est-ce que les coordonnés cubiques sont applicables sur le thor dans le système décrit ci-avant ?
 
 ### Cas particulier de la couture
 
@@ -66,28 +73,32 @@ La distance entre 2 cases est :
           /       \     /       \
       \ /           \ /           \ 
        |             |             |
-       |   7.5,-166  |   7.5,162   |
+       |     1,17    |     1,18    |
        |             |             |
       / \           / \           / \
     /     \       /     \       /     \
   /         \   /         \   /         \
 |             |             |             |
-|   0,-162    |    0,180    |     0,162   |
+|   0,17      |    0,18     |     0,-17   |
 |             |             |             |
   \         /   \         /   \          /
     \     /       \     /       \      /
       \ /           \ /           \  /
        |             |             |
-       |  -7.5,-166  |  -7.5,162   |
+       |    -1,18    |    -1,-17   |
        |             |             |
         \           / \           /
           \       /     \       /
             \ . /         \ . /
 
 ```
-donc pour se rendre de (0,180) à (-7.5,162) il faut :
+donc pour se rendre de (0,18) à (-1,-17) il faut :
+d = max (| 0 - -1 |, | 18 - -17 |, | (0-18) - (-1-17) |)
+d = max (1, 1, 0)
+d = 1
 
-
-donc pour se rendre de (0,-180) à (0,-162) il faut :
-
+donc pour se rendre de (1,17) à (-1,18) il faut :
+d = max (| 1 - -1 |, | 17 - 18|, | (-1-17) - (1-18) |)
+d = max (2, 1, 1)
+d = 2
 
